@@ -3,7 +3,7 @@
 
 #define KEY_START 0
 
-#define NUM_SAMPLES 15
+#define NUM_SAMPLES 5
 
 static Window *window;
 static TextLayer *x_layer, *y_layer, *z_layer;
@@ -11,14 +11,14 @@ static int latest_data[3 * NUM_SAMPLES];
 
 static void window_load(Window *window) 
 {
-	x_layer = cl_init_text_layer(GRect(0, 0, 144, 24), GColorBlack, GColorClear, false, 0, FONT_KEY_GOTHIC_18, GTextAlignmentLeft);
+	x_layer = cl_text_layer_create(GRect(0, 0, 144, 24), GColorBlack, GColorClear, false, 0, FONT_KEY_GOTHIC_18, GTextAlignmentLeft);
 	text_layer_set_text(x_layer, "Waiting for Android...");
 	layer_add_child(window_get_root_layer(window), text_layer_get_layer(x_layer));
 
-	y_layer = cl_init_text_layer(GRect(0, 24, 144, 24), GColorBlack, GColorClear, false, 0, FONT_KEY_GOTHIC_18, GTextAlignmentLeft);
+	y_layer = cl_text_layer_create(GRect(0, 24, 144, 24), GColorBlack, GColorClear, false, 0, FONT_KEY_GOTHIC_18, GTextAlignmentLeft);
 	layer_add_child(window_get_root_layer(window), text_layer_get_layer(y_layer));
 
-	z_layer = cl_init_text_layer(GRect(0, 48, 144, 24), GColorBlack, GColorClear, false, 0, FONT_KEY_GOTHIC_18, GTextAlignmentLeft);
+	z_layer = cl_text_layer_create(GRect(0, 48, 144, 24), GColorBlack, GColorClear, false, 0, FONT_KEY_GOTHIC_18, GTextAlignmentLeft);
 	layer_add_child(window_get_root_layer(window), text_layer_get_layer(z_layer));
 }
 
